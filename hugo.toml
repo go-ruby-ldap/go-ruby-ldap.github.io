@@ -1,0 +1,26 @@
+baseURL = "https://go-ruby-ldap.github.io/"
+title = "go-ruby-ldap"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Pure Go, zero cgo"
+  status = "ready"
+  blurb = "`ldap` builds with `CGO_ENABLED=0` — it cross-compiles to every Go target with no C toolchain and links into a single static binary. The LDAP protocol is delegated to the pure-Go `github.com/go-ldap/ldap/v3`."
+
+[[params.phases]]
+  name = "Reference-faithful"
+  status = "ready"
+  blurb = "Reproduces the public `Net::LDAP` API and semantics of the Ruby [net-ldap](https://github.com/ruby-ldap/ruby-net-ldap) gem — bind, search, the RFC 4515 filter builder, the case-insensitive Entry, get_operation_result — **without any Ruby runtime**."
+
+[[params.phases]]
+  name = "Standalone & reusable"
+  status = "ready"
+  blurb = "A standalone Go module any program can import; the dependency runs the other way — `rbgo` binds it into [go-embedded-ruby](https://github.com/go-embedded-ruby/ruby) as the `Net::LDAP` native module, the same pattern as go-ruby-etcd."
+
+[[params.phases]]
+  name = "100% coverage · 6 arches"
+  status = "ready"
+  blurb = "100% test coverage is the CI gate, `gofmt` + `go vet` clean, green across the six 64-bit Go targets (amd64, arm64, riscv64, loong64, ppc64le, s390x — including the big-endian lane) plus js/wasm and wasip1/wasm build lanes."
